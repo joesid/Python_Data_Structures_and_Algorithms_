@@ -4,7 +4,6 @@ birthyear = 1994
 currentyear = datetime.datetime.now().year #Declaration for getting year 
 count = 0
 num_years = 0
-c= 0
 total_days = 0
 
 
@@ -18,9 +17,9 @@ calendar = {"JAN": 31, "FEB": 28, "MAR":31, "APR":30, "MAY":31, "JUNE": 30, "JUL
 #Collect User Inputs
 month = input("please enter your month; ").upper()
 
-birthyear = input("please enter your birthyear: ")
+birthyear = int(input("please enter your birthyear: "))
 
-day = input("Day of your birth ")
+day = int(input("Day of your birth "))
 
 
 
@@ -47,7 +46,6 @@ def chk_days(day, month, birthyear):
 #leapyear_b = chk_leap(birthyear)
 #leapyear_c = chk_leap(currentyear)
 
-print(month)
 
 #Count How many Leap years are between BirthYear and the Current Year
 def count_leap(birthyear,currentyear):
@@ -58,30 +56,41 @@ def count_leap(birthyear,currentyear):
     return count
 
 
-def Calc_d(month, birthyear, currentyear):
-    if month == "FEB":
-        days = 28
-    elif month == "FEB" and chk_leap(birthyear):
-        days = 29
- 
-
-    for days in calendar.values():
-        if days != "error":
-            total_days += days
+def Days_in_Month(month, year):
+    ### this code is designed to calcute the number of days in am month ###
+    if month in calendar:
+        day = calendar.get(month, "error")
+        if month == "FEB" and chk_leap(year) is True:
+            day +=1
+            return day
+        elif month == "FEB":
+            day = 28
+            return day
         else:
-            print("Error")
+            return day
 
-    print(type(total_days))
-    print(type(days))
+    # for days in calendar.values():
+    #     if days != "error":
+    #         total_days += days
+    #     else:
+    #         print("Error")
+
+def Calculate_DayRem(day_input, month, year):
+    ### Calculate the days remaining in a given month from the current date
+    month_days = Days_in_Month(month, year)
+    days_left = month_days - day_input
+    return days_left
+  
 
 
 
-num_years = 2023 - 1994
-not_leap = num_years - count
 
 
 
-print(total_days)
-print(not_leap)
-print(num_years)
-print(count)
+
+#debug console 
+#print(type(day))
+
+print("month value {}: ".format(month))
+print("Days in month: {}".format(Days_in_Month(month, currentyear)))
+print("Days remaining in the month choosen {}: ".format(Calculate_DayRem(day, month, currentyear)))
