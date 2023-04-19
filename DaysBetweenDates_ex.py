@@ -24,7 +24,19 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
        and year2/month2/day2. Assumes inputs are valid dates
        in Gregorian calendar, and the first date is not after
        the second."""
-        
+    total_years = year2 - year1
+    total_month = month2 - month1
+
+    if year2 == year1 and month2 == month1:
+        no_of_days = day2 - day1
+    elif year2 == year1 and month2 > month1:
+        no_of_days == (total_month * 30) + (30 - day1) + (30 - day2)
+    elif year2 > year1 and month2 == month1:
+        day_bet_yr = (30 * 12)** total_years
+        no_of_days = (day2 - day1) + day_bet_yr
+    elif year2 > year1 and month2 > month1:
+        day_bet_yr = (30 * 12)**total_years
+        no_of_days = ((30 * 2)**total_years) + (total_month * 30) + (30 - day1) + (30 - day2)
     # YOUR CODE HERE!
     return
 
@@ -43,4 +55,6 @@ def test():
             "Test case passed!"
 
 test()
-    
+
+days = daysBetweenDates(2012, 9, 1, 2012, 9, 4)
+print(days)
