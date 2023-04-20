@@ -26,6 +26,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
        the second."""
     total_years = year2 - year1
     total_month = month2 - month1
+    no_of_days = 0
 
     if year2 == year1 and month2 == month1:
         no_of_days = day2 - day1
@@ -38,7 +39,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         day_bet_yr = (30 * 12)**total_years
         no_of_days = ((30 * 2)**total_years) + (total_month * 30) + (30 - day1) + (30 - day2)
     # YOUR CODE HERE!
-    return
+    return no_of_days
 
 def test():
     test_cases = [((2012,9,30,2012,10,30),30), 
@@ -56,5 +57,5 @@ def test():
 
 test()
 
-days = daysBetweenDates(2012, 9, 1, 2012, 9, 4)
+days = daysBetweenDates(2012, 1, 1, 2013, 1, 1)
 print(days)
