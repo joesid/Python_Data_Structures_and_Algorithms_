@@ -19,11 +19,35 @@ def nextDay(year, month, day):
         else:
             return year, month + 1, 1
         
+def dateIsBefore(year1, month1, day1, year2, month2, day2):
+#check if the second date comes before the first date
+   day_b4 = False
+
+   if year2 > year1:
+       day_b4 = True
+   elif year2 < year1:
+       day_b4 = False
+   elif year2 == year1 and month2 > month1:
+       day_b4 = True
+   elif year2 == year1 and month2 < month1:
+       day_b4 = False
+   elif (year2 == year1 and month2 == month1) and day2 > day1:
+       day_b4 = True   
+   elif (year2 == year1 and month2 == month1) and day2 < day1:
+       day_b4 = False
+
+   return day_b4 
+
+
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
        and year2/month2/day2. Assumes inputs are valid dates
        in Gregorian calendar, and the first date is not after
        the second."""
+    
+    isDayb4 = dateIsBefore(year1, month1, day1, year2, month2, day2)
+    print(isDayb4)
+
     total_years = year2 - year1
     total_month = month2 - month1
     no_of_days = 0
@@ -59,3 +83,6 @@ test()
 
 days = daysBetweenDates(2012, 1, 1, 2013, 1, 1)
 print(days)
+
+
+   
