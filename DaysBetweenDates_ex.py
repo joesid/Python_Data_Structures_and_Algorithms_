@@ -21,22 +21,31 @@ def nextDay(year, month, day):
         
 def dateIsBefore(year1, month1, day1, year2, month2, day2):
 #check if the second date comes before the first date
-   day_b4 = False
+   # day_b4 = False
+    
+   if year1 < year2:     #2nd Solution 
+       return True
+   if year1 == year2:
+       if month1 < month2:
+           return True
+       if month1 == month2:
+           return day1 < day2
+   return False
 
-   if year2 > year1:
-       day_b4 = True
-   elif year2 < year1:
-       day_b4 = False
-   elif year2 == year1 and month2 > month1:
-       day_b4 = True
-   elif year2 == year1 and month2 < month1:
-       day_b4 = False
-   elif (year2 == year1 and month2 == month1) and day2 > day1:
-       day_b4 = True   
-   elif (year2 == year1 and month2 == month1) and day2 < day1:
-       day_b4 = False
+#    if year2 > year1:    #My Answer 
+#        day_b4 = True
+#    elif year2 < year1:
+#        day_b4 = False
+#    elif year2 == year1 and month2 > month1:
+#        day_b4 = True
+#    elif year2 == year1 and month2 < month1:
+#        day_b4 = False
+#    elif (year2 == year1 and month2 == month1) and day2 > day1:
+#        day_b4 = True   
+#    elif (year2 == year1 and month2 == month1) and day2 < day1:
+#        day_b4 = False
 
-   return day_b4 
+#    return day_b4 
 
 
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
@@ -51,6 +60,7 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     total_years = year2 - year1
     total_month = month2 - month1
     no_of_days = 0
+    
 
     if year2 == year1 and month2 == month1:
         no_of_days = day2 - day1
