@@ -61,7 +61,12 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     total_month = month2 - month1
     no_of_days = 0
     
- 
+    def daysleft (month, day):
+        monthleft = 12 - month
+        dayleft = 30 - day
+        total_days = dayleft + (monthleft * 30)
+        return  total_days
+
 
     if year2 == year1 and month2 == month1:
         no_of_days = day2 - day1
