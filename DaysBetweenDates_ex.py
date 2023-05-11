@@ -71,7 +71,8 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     if year2 == year1 and month2 == month1:
         no_of_days = day2 - day1
     elif year2 == year1 and month2 > month1:
-        no_of_days = (total_month * 30) + (30 - day1) + (30 - day2)
+        #no_of_days = (total_month * 30) + (30 - day1) + (30 - day2)
+        no_of_days = daysleft(month1, day1) + (30 - day1) + day2
     elif year2 == year1 and month2 < month1:
         no_of_days = (total_month * 30) 
     elif year2 > year1 and month2 == month1:
@@ -99,7 +100,7 @@ def test():
 
 test()
 
-days = daysBetweenDates(2012, 9, 1, 2013, 1, 1)
+days = daysBetweenDates(2013, 1, 24, 2013, 1, 29)
 print(days)
 
 
