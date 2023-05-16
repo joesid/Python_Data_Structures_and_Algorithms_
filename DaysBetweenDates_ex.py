@@ -62,10 +62,9 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     no_of_days = 0
     
     def daysleft (month1, month2, day1):
-        monthleft = month2 - month1 - 1
+        monthleft = month2 - month1 - 1 #Find the exact no of months between 2 months
         dayleft = 30 - day1
-        total_days = dayleft + (monthleft * 30)  #test code
-        #total_days = dayleft + (monthleft * 30)
+        total_days = dayleft + (monthleft * 30)  #days left betwwen first month and months inbetween
         return  total_days
 
 
@@ -78,14 +77,23 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
         
     elif year2 == year1 and month2 < month1:
         no_of_days = (total_month * 30) 
+
     elif year2 > year1 and month2 == month1:
         day_bet_yr = (30 * 12) * total_years
         no_of_days = (day2 - day1) + day_bet_yr
+
     elif year2 > year1 and month2 > month1:
         day_bet_yr = (30 * 12)*total_years
         no_of_days = ((30 * 2)*total_years) + (total_month * 30) + (30 - day1) + (30 - day2)
+
     # YOUR CODE HERE!
     return no_of_days
+
+days = daysBetweenDates(2013, 1, 24, 2013, 6, 29)
+days2 = daysBetweenDates(2012, 1, 1, 2014, 1, 1)
+print(days)
+print(days2)
+
 
 def test():
     test_cases = [((2012,9,30,2012,10,30),30), 
@@ -93,20 +101,22 @@ def test():
                   ((2012,9,1,2012,9,4),3)]
     
     for (args, answer) in test_cases:
-        result = daysBetweenDates(*args)
-        if result != answer:
-            print 
-            "Test with data:", args, "failed"
-        else:
-            print 
-            "Test case passed!"
+        try:
+            result = daysBetweenDates(*args)
+            if result != answer:
+                print("Test with data:", args, "failed")
+            else:
+                print("Test case passed!")
+
+        except AssertionError:
+           if answer == ("AssertionError"):
+               print (" ")
+           else:
+               print(" ")
+     
+
 
 test()
-
-days = daysBetweenDates(2013, 1, 24, 2013, 6, 29)
-days2 = daysBetweenDates(2012, 1, 1, 2013, 1, 1)
-print(days)
-print(days2)
 
 
    
