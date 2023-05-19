@@ -54,8 +54,10 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
        in Gregorian calendar, and the first date is not after
        the second."""
     
-    isDayb4 = dateIsBefore(year1, month1, day1, year2, month2, day2)
-    print(isDayb4)
+    
+    #isDayb4 = dateIsBefore(year1, month1, day1, year2, month2, day2)
+   #print(isDayb4)
+    
 
     total_years = year2 - year1
     total_month = month2 - month1
@@ -90,9 +92,10 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     return no_of_days
 
 days = daysBetweenDates(2013, 1, 24, 2013, 6, 29)
-days2 = daysBetweenDates(2012, 1, 1, 2014, 1, 1)
+days2 = daysBetweenDates(2012, 1, 1, 2014, 5, 12)
 print(days)
 print(days2)
+
 
 
 def test():
@@ -110,13 +113,14 @@ def test():
 
         except AssertionError:
            if answer == ("AssertionError"):
-               print (" ")
+               print ("Nice job! Tesst case {0} correctly raises Assertion Error!\n".format(args))
            else:
-               print(" ")
+               print("Check your work! Test case {0} should not raise Assertion!\n".format(args))
      
 
 
 test()
+
 
 
    
