@@ -12,4 +12,12 @@
 #test daysBetweenDates(...) for all test cases 
 
 
+def isLeapYear(year):
+    boolval = False
+    if year % 4 == 0:
+        print("True")
+    else:
+        print("False")
+    return boolval
 
+isLeapYear(2020)
