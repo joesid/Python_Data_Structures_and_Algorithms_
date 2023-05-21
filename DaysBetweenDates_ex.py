@@ -32,22 +32,6 @@ def dateIsBefore(year1, month1, day1, year2, month2, day2):
            return day1 < day2
    return False
 
-#    if year2 > year1:    #My Answer 
-#        day_b4 = True
-#    elif year2 < year1:
-#        day_b4 = False
-#    elif year2 == year1 and month2 > month1:
-#        day_b4 = True
-#    elif year2 == year1 and month2 < month1:
-#        day_b4 = False
-#    elif (year2 == year1 and month2 == month1) and day2 > day1:
-#        day_b4 = True   
-#    elif (year2 == year1 and month2 == month1) and day2 < day1:
-#        day_b4 = False
-
-#    return day_b4 
-
-
 def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     """Returns the number of days between year1/month1/day1
        and year2/month2/day2. Assumes inputs are valid dates
@@ -73,8 +57,6 @@ def daysBetweenDates(year1, month1, day1, year2, month2, day2):
     if year2 == year1 and month2 == month1:
         no_of_days = day2 - day1
     elif year2 == year1 and month2 > month1:
-        #no_of_days = (total_month * 30) + (30 - day1) + (30 - day2)
-       # no_of_days = daysleft(month1, day1) + (30 - day1) + day2
        no_of_days = daysleft(month1,month2, day1) + day2
         
     elif year2 == year1 and month2 < month1:
