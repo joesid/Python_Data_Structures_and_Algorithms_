@@ -34,7 +34,18 @@ def daysInMonth(year, month):
         return 31
     
 
+def nextDay(year, month, day):
 
+    if day < 30:
+        return year, month, day+1
+    elif day == 30 and month < 12:
+        day = 1
+        return year, month+1, day
+    elif day == 30 and month == 12:
+        day = 1 
+        month = 1
+        return year+1, month, day 
+    
 
 
 
