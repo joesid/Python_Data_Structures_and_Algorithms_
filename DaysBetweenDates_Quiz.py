@@ -32,7 +32,12 @@ def daysInMonth(year, month):
         return 28
     else:
         return 31
-    
+
+def dayInMonth_ly(year,month):
+    if month == 2 and isLeapYear(year):
+        return 29
+    else:
+        return daysInMonth(year,month)
 
 def nextDay(year, month, day):
 
@@ -46,6 +51,7 @@ def nextDay(year, month, day):
         month = 1
         return year+1, month, day 
     
+
 
 
 
