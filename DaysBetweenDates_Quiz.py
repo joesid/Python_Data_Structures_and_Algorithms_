@@ -1,5 +1,5 @@
 #Quiz
-
+import unittest
 #  A Write isLeapYear(year)
 #  B write stub daysInMonth(year, month) that always returns 30
 #  c modify daysInMonth(year, month) to be correct except for leap years
@@ -15,29 +15,30 @@
 #BEICIAFK
 
 def isLeapYear(year):
-    boolval = False
     if year % 4 == 0:
-        print("True")
+        return True
     else:
-        print("False")
-    return boolval
+        return False
+    
 
 isLeapYear(2020)
 
 
-def daysInMonth(year, month):
-    if month == 4 or  6 or 9 or 11:
-        return 30
-    elif month == 2:
+def daysInMonth(month):
+    if month == 2:
         return 28
+    elif month == 4 or month == 6:
+        return 30
+    elif month == 9 or month == 11:
+        return 30
     else:
         return 31
 
 def dayInMonth_ly(year,month):
     if month == 2 and isLeapYear(year):
         return 29
-    else:
-        return daysInMonth(year,month)
+    elif isLeapYear(year) == False:
+        return daysInMonth(month)
 
 def nextDay(year, month, day):
 
@@ -53,6 +54,10 @@ def nextDay(year, month, day):
     
 
 
+print(nextDay(2013,5,30))
+
+#print(dayInMonth_ly(2021,2))
 
 
 
+print(daysInMonth(10))
