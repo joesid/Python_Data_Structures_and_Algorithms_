@@ -21,9 +21,6 @@ def isLeapYear(year):
         return False
     
 
-isLeapYear(2020)
-
-
 def daysInMonth(month):
     if month == 2:
         return 28
@@ -42,22 +39,22 @@ def dayInMonth_ly(year,month):
 
 def nextDay(year, month, day):
 
-    if day < 30:
+    if day < dayInMonth_ly(year, month):
         return year, month, day+1
-    elif day == 30 and month < 12:
+    elif day == dayInMonth_ly(year,month) and month < 12:
         day = 1
         return year, month+1, day
-    elif day == 30 and month == 12:
+    elif day == 31 and month == 12:
         day = 1 
         month = 1
         return year+1, month, day 
     
 
 
-print(nextDay(2013,5,30))
+print(nextDay(2020,2,28))
 
 #print(dayInMonth_ly(2021,2))
 
 
 
-print(daysInMonth(10))
+#print(daysInMonth(10))
