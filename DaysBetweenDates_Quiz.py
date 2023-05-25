@@ -48,7 +48,20 @@ def nextDay(year, month, day):
         day = 1 
         month = 1
         return year+1, month, day 
-    
+
+def dayBetweenDates(year2, month2, day2, year1, month1, day1):
+
+    month2_val = dayInMonth_ly(year2,month2)
+    month1_val = dayInMonth_ly(year1, month1)
+    days_num = 0
+
+    if year2 == year1 and month2 == month1:
+        days_num = day2 - day1
+    elif year2 == year1 and month2 > month1:
+        days_num = 
+        
+        
+
 
 
 print(nextDay(2020,2,28))
