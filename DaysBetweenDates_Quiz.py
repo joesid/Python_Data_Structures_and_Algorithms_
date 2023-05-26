@@ -48,18 +48,17 @@ def nextDay(year, month, day):
         day = 1 
         month = 1
         return year+1, month, day 
+    
+def daysleft(year, month, day):
+    ### Find the number of days between two months###
+    dayleft = dayInMonth_ly(year, month) - day
+    return dayleft
 
-def dayBetweenDates(year2, month2, day2, year1, month1, day1):
 
-    month2_val = dayInMonth_ly(year2,month2)
-    month1_val = dayInMonth_ly(year1, month1)
-    days_num = 0
+print(daysleft(2, 2020, 28))
 
-    if year2 == year1 and month2 == month1:
-        days_num = day2 - day1
-    elif year2 == year1 and month2 > month1:
-        days_num = 
-        
+
+
         
 
 
