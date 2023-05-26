@@ -55,18 +55,35 @@ def daysleft(year, month, day):
     return dayleft
 
 
+def daysBtwnMonth(year, month2, month1):
+    #cmonth1 =-1
+   
+    for month in range(month1, month2):
+        days = dayInMonth_ly(year,month)
+        print(type(days))
+       
+
+
+    pass
+
+def dayBetweenDate(year2, month2, day2, year1, month1, day1):
+    day_num = 0
+    
+    if year2 == year1 and month2 == month1:
+        day_num = day2 - day1
+    elif year2 == year1 and month2 > month1:
+        pass
+
+    
+
+
+
+daysBtwnMonth(2020, 5, 1)
+
+
 print(daysleft(2, 2020, 28))
-
-
-
-        
-
-
 
 print(nextDay(2020,2,28))
 
-#print(dayInMonth_ly(2021,2))
 
 
-
-#print(daysInMonth(10))
