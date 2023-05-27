@@ -15,7 +15,7 @@ import unittest
 #BEICIAFK
 
 def isLeapYear(year):
-    if year % 4 == 0:
+    if year % 4 == 0 and (year % 100 !=0 or year % 400 == 0):
         return True
     else:
         return False
@@ -73,7 +73,21 @@ def daysBtwnMonth(year, month2, month1):
             total_days += daysInMonth(month)
 
     return total_days    
-       
+    
+def daysBtwnYear(year1, year2):
+    total_days = 0
+    days = 0
+    year1 +=1
+    
+    for year in range(year1,year2):
+        print("current year is {}".format(year))
+        if isLeapYear(year):
+            days += 366
+        else:
+            days += 365 
+
+    total_days +=days
+    return total_days
 
 def dayBetweenDate(year2, month2, day2, year1, month1, day1):
     day_num = 0
@@ -84,14 +98,16 @@ def dayBetweenDate(year2, month2, day2, year1, month1, day1):
     if year2 == year1 and month2 == month1:
         day_num = day2 - day1
     elif year2 == year1 and month2 > month1:
-        day_num = add + (dayInMonth1 - day1) + (dayInMonth2 - (dayInMonth2 - day2))
-    
+        day_num = add + (dayInMonth1 - day1) + (dayInMonth2 - (dayInMonth2 - day2)) - 1
+    elif year2 > year1 and month2 == month1:
+        
+        pass
 
-    pass
+    return day_num
 
-    
-day = dayInMonth_ly(2021,2)
-print((day))
+
+ 
+#print(dates) 
 
 def test():  
 
@@ -108,3 +124,6 @@ def test():
     #print(daysleft(2, 2020, 28))
 
     #print(nextDay(2020,2,28))
+
+
+#test()
