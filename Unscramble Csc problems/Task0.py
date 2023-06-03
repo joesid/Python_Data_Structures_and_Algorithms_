@@ -14,7 +14,6 @@ with open('./texts.csv', 'r') as f:
 with open('./calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
-    print(calls)
     calls.reverse()
 
 tex_l = []
@@ -25,10 +24,9 @@ cal_l = []
 for i in calls[0]:
     cal_l.append(i)
 
-
 print("First record of text, {} text {} at time {}".format(tex_l[0], tex_l[1], tex_l[2]))
 
-print("Last record of calls, {} calls {} at time {} lasting seconds".format(cal_l[0], cal_l[1], cal_l[2], cal_l[3]))
+print("Last record of calls, {} calls {} at time {} lasting {} seconds".format(cal_l[0], cal_l[1], cal_l[2], cal_l[3]))
 """
 TASK 0:
 What is the first record of texts and what is the last record of calls?
