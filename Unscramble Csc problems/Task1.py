@@ -3,6 +3,8 @@ Read file into texts and calls.
 It's ok if you don't understand how to read files.
 """
 import csv
+import re
+
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
@@ -25,6 +27,15 @@ for i in calls:
      my_calls.append(i[1])
 
 print(len(my_calls))
+
+num = 0
+
+for i in my_calls:
+    if re.search(r'\\(\D',i):
+        print(type(i))
+          
+
+
 """
 TASK 1:
 How many different telephone numbers are there in the records? 
