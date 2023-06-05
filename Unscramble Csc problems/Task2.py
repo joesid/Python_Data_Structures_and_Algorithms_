@@ -13,19 +13,22 @@ with open('calls.csv', 'r') as f:
 
 
 cal_l = []
-for i in calls:
-    cal_l.append(int(i[3]))
+num = 0
 
+for entry in calls:
+    cal_l.append(int(entry[3]))
+    num +=1
 cal_l.sort()
 
+highVal = num - 1
 
-print(cal_l)
-
-val = len(cal_l)
-
-print(val)
-
+#print(cal_l)
+large = cal_l[highVal]
  
+for entry1 in calls:
+    if int(entry1[3]) == large:
+        print(entry1)
+        print("{} spent the longest time, {} seconds, on the phone during Septemeber 2016.".format(entry1[0], entry1[3]))
 
 
 """
