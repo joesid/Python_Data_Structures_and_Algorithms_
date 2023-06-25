@@ -30,10 +30,31 @@ print(len(my_calls))
 
 num = 0
 
+
+fixed_pattern = r'\(\d{2,}\)\d{8,9}'
+
+mobile_pattern = r'[789]\d{4} \d{5}'
+telemarketer_pattern = r'140\d{7}'
+
+fix = 0
+mobile = 0
+tele = 0
+
 for i in my_calls:
-    if re.search(r'\\(\D',i):
-        print(type(i))
-          
+   
+    if re.search(fixed_pattern,i):
+        fix +=1
+    elif re.search(mobile_pattern, i):
+         mobile+=1
+    elif re.search(telemarketer_pattern, i):
+         tele+=1
+         
+         
+        
+print("there are {} of fixed phone lines".format(fix))
+print("there are {} of mobile phone lines".format(mobile))
+print("there are {} of telemarketer phone lines".format(tele))
+
 
 
 """
