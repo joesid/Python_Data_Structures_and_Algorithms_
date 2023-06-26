@@ -46,7 +46,6 @@ my_mobile=[]
 my_tele=[]
 
 for i in my_calls:
-   
     if re.search(fixed_pattern,i):
         fix +=1
         my_fix.append(i)
@@ -58,14 +57,15 @@ for i in my_calls:
     elif re.search(telemarketer_pattern, i):
          tele+=1
          my_tele.append(i)
-    
-# for i in my_calls:
-#      print(i)
 
-        
 
-total = fix + mobile + tele
-print(total)
+for i in my_texts:
+     if re.search(fixed_pattern, i):
+          my_fix.append(i)
+     elif re.search(mobile_pattern, i):
+          my_mobile.append(i)
+     elif re.search(telemarketer_pattern, i):
+          my_tele.append(i)
 
 unique_mobile = list(set(my_mobile))
 unique_mobile.sort()
@@ -76,6 +76,9 @@ unique_fix.sort()
 unique_tele = list(set(my_tele))
 unique_tele.sort()
 
+total = len(unique_mobile) + len(unique_fix) + len(unique_tele)
+
+#Print list of phone numbers in a given file to see if there's any duplicate
 with open("fixed_mobile.txt", "w") as file:
      file.truncate()
      for item in unique_fix:
@@ -85,7 +88,8 @@ print("there are {} of fixed phone lines".format(len(unique_fix)))
 print("there are {} of mobile phone lines".format(len(unique_mobile)))
 print("there are {} of telemarketer phone lines".format(len(unique_tele)))
 
-    
+print("There are {} diferent telephone numbers n the records.".format(total))
+
 """
 TASK 1:
 How many different telephone numbers are there in the records? 
