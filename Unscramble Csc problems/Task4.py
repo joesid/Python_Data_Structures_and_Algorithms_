@@ -15,8 +15,6 @@ with open('calls.csv', 'r') as f:
 
 send_texts = []
 mobile_pattern = r'[789]\d{3,5}\s\d+'
-callers_list = []
-mobile_callers = []
 
 send_texts = {row[0] for row in texts}
     
@@ -25,7 +23,6 @@ send_texts = {row[0] for row in texts}
 #         mobile_callers.append(log[0])
         
 mobile_callers = {row[0] for row in calls if re.match(mobile_pattern, row[0])}
-
 
 matched_no  = []
 
@@ -42,8 +39,8 @@ list_tele = list(set(matched_no))
 
 print("These numbers could be telemarketers: ")
 
-for i in list_tele:
-    print(i)
+for number in sorted(list_tele):
+    print(number)
 
 """
 TASK 4:
