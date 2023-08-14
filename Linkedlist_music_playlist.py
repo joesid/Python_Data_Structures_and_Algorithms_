@@ -18,4 +18,22 @@ class Playlist:
             while current.next_song:
                 current = current.next_song
             current.next_song = new_song
+
+    def display_playlist(self):
+        current = self.head
+        while current:
+            print(" \n {} by {} \n".format(current.title, current.artist))
+            current = current.next_song
+
+
+
+playlist = Playlist()
+
+playlist.add_song("Life is a Lemon", "Meat Loaf")
+playlist.add_song("Enemy", "Imagine dragons")
+playlist.add_song("Enemy", "Imagine dragons")
+playlist.add_song("Aerial", "System Of a Down")
+
+
+playlist.display_playlist()
  
